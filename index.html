@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumo Completo para Prova</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #004085;
+            --secondary-color: #0056b3;
+            --light-blue: #b8daff;
+            --background-color: #f8f9fa;
+            --text-color: #212529;
+            --card-background: #ffffff;
+            --border-color: #dee2e6;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            padding-bottom: 120px; /* Espaço para os controles de áudio */
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px 40px;
+            background-color: var(--card-background);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Roboto Slab', serif;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--light-blue);
+            padding-bottom: 10px;
+            margin-top: 2em;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        h2 {
+            font-size: 2em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            color: #343a40;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        p {
+            margin-bottom: 1em;
+            text-align: justify;
+        }
+
+        ul {
+            list-style-position: outside;
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 0.8em;
+        }
+
+        strong, b {
+            color: #00336a;
+        }
+        
+        .red-flag {
+            color: #c82333;
+            font-weight: bold;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2em 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-family: 'Roboto Slab', serif;
+        }
+        
+        tr:nth-child(even) {
+            background-color: var(--background-color);
+        }
+        
+        #table-of-contents {
+            background-color: #e9ecef;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 2em;
+        }
+        
+        #table-of-contents h2 {
+            margin-top: 0;
+            border-bottom: none;
+        }
+
+        #table-of-contents ul {
+            padding-left: 0;
+            list-style-type: none;
+            columns: 2;
+            -webkit-columns: 2;
+            -moz-columns: 2;
+        }
+        
+        #table-of-contents a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+        
+        #table-of-contents a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Estilos para os Controles de Leitura --- */
+        .read-section-btn {
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            padding: 0 5px;
+            transition: transform 0.2s;
+        }
+        .read-section-btn:hover {
+            transform: scale(1.2);
+        }
+
+        #tts-controls {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            background-color: rgba(0, 64, 133, 0.95);
+            padding: 15px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        #tts-controls button {
+            background-color: #fff;
+            color: var(--primary-color);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s, color 0.2s, transform 0.2s;
+        }
+        #tts-controls button:hover {
+            background-color: var(--light-blue);
+            transform: scale(1.1);
+        }
+        #tts-controls button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: scale(1);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Revisão Completa para Prova</h1>
+
+        <nav id="table-of-contents">
+            <h2>Índice de Assuntos</h2>
+            <ul>
+                <li><a href="#assunto1">1. Cervicalgia</a></li>
+                <li><a href="#assunto2">2. Lombalgia e Radiculopatias</a></li>
+                <li><a href="#assunto3">3. Osteomielite</a></li>
+                <li><a href="#assunto4">4. Dores Articulares</a></li>
+                <li><a href="#assunto5">5. Síndrome do Manguito Rotador</a></li>
+                <li><a href="#assunto6">6. Síndrome do Túnel do Carpo</a></li>
+                <li><a href="#assunto7">7. Displasia do Quadril</a></li>
+                <li><a href="#assunto8">8. Osteoporose</a></li>
+                <li><a href="#assunto9">9. Cefaleia</a></li>
+                <li><a href="#assunto10">10. Acidente Vascular Encefálico</a></li>
+                <li><a href="#assunto11">11. Delirium</a></li>
+                <li><a href="#assunto12">12. Memória e Doença de Alzheimer</a></li>
+                <li><a href="#assunto13">13. Síndromes Extrapiramidais e Parkinson</a></li>
+                <li><a href="#assunto14">14. Epilepsia e Crises Epilépticas</a></li>
+                <li><a href="#assunto15">15. Lesões do Neurônio Motor</a></li>
+                <li><a href="#assunto16">16. Distúrbios Visuais e Auditivos</a></li>
+                <li><a href="#assunto17">17. Disfunções Hipofisárias</a></li>
+                <li><a href="#assunto18">18. Puberdade Precoce</a></li>
+                <li><a href="#assunto19">19. Diabetes Mellitus</a></li>
+                <li><a href="#assunto20">20. Complicações do Diabetes</a></li>
+            </ul>
+        </nav>
+
+        <main id="main-content">
+            <section id="assunto1">
+                <h2>Assunto 1: Cervicalgia <button class="read-section-btn" title="Ler esta seção">🔊</button></h2>
+                <h3>Morfofisiologia da Coluna Cervical</h3>
+                <p>A coluna cervical, a porção mais móvel da coluna vertebral, é composta por 7 vértebras (C1-C7). As vértebras C1 (Atlas) e C2 (Áxis) são especializadas em movimentos de flexão/extensão e rotação da cabeça. As vértebras C3 a C7 permitem os demais movimentos. Estruturas como os discos intervertebrais (amortecedores), ligamentos (estabilidade) e uma complexa musculatura superficial (Trapézio, ECOM) e profunda (Escalenos) completam a sua estrutura.</p>
+                <h3>Etiologia e Fatores de Risco</h3>
+                <p>A causa mais comum de cervicalgia é a <strong>tensão muscular</strong>, frequentemente por má postura, como na "Text Neck Syndrome" (pescoço de texto). Outras causas incluem doença degenerativa discal, hérnia de disco e, mais raramente, causas inflamatórias, infecciosas ou neoplásicas, que são consideradas <span class="red-flag">"Red Flags"</span>.</p>
+                <h3>Diagnóstico e Tratamento</h3>
+                <p>O diagnóstico é essencialmente clínico, baseado na anamnese e exame físico, que inclui palpação de pontos-gatilho e testes provocativos como o <strong>Teste de Spurling</strong>. Exames de imagem como a Ressonância Magnética (RM) são reservados para casos com sinais de alarme. O tratamento foca em AINEs na fase aguda (3-7 dias), relaxantes musculares e, fundamentalmente, <strong>fisioterapia</strong> para fortalecimento e correção postural.</p>
+            </section>
+
+            <section id="assunto2">
+                <h2>Assunto 2: Lombalgia e Radiculopatias <button class="read-section-btn" title="Ler esta seção">🔊</button></h2>
+                <h3>Morfofisiologia</h3>
+                <p>A coluna lombar é composta por 5 vértebras robustas (L1-L5). Abaixo do fim da medula (cone medular), encontra-se a <strong>cauda equina</strong>, um feixe de raízes nervosas. O nervo ciático, o maior do corpo, é formado por raízes de L4 a S3 e sua compressão causa a dor ciática.</p>
+                <h3>Etiologia e Manifestações Clínicas</h3>
+                <p>A <strong>hérnia de disco</strong> é a causa mais comum de radiculopatia em pacientes com menos de 50 anos, enquanto a <strong>estenose do canal vertebral</strong> é mais prevalente em idosos. A clínica varia conforme a raiz nervosa afetada:</p>
+                <ul>
+                    <li><strong>L4:</strong> Dor na face anteromedial da coxa, fraqueza na extensão do joelho e reflexo patelar diminuído.</li>
+                    <li><strong>L5:</strong> Dor na face lateral da perna e dorso do pé, com fraqueza na dorsiflexão do pé (dificuldade de "andar nos calcanhares").</li>
+                    <li><strong>S1:</strong> Dor na face posterior da perna e planta do pé, com fraqueza na flexão plantar (dificuldade de "ficar na ponta dos pés") e reflexo aquileu diminuído.</li>
+                </ul>
+                <p>A <span class="red-flag">Síndrome da Cauda Equina</span> (anestesia em "sela", retenção urinária) é uma emergência cirúrgica.</p>
+                <h3>Diagnóstico e Tratamento</h3>
+                <p>O diagnóstico é clínico, auxiliado pelo <strong>Teste de Lasègue</strong>. O tratamento conservador é eficaz em 90% dos casos, utilizando AINEs, corticoides (orais ou em infiltração epidural) e fisioterapia. A cirurgia é reservada para casos graves ou refratários.</p>
+            </section>
+            
+            <section id="assunto3">
+                <h2>Assunto 3: Osteomielite <button class="read-section-btn" title="Ler esta seção">🔊</button></h2>
+                <h3>Etiologia e Fisiopatologia</h3>
+                <p>Osteomielite é a inflamação do osso, quase sempre por infecção. O agente mais comum é o <strong><em>Staphylococcus aureus</em></strong>. A infecção pode ocorrer por via hematogênica, contiguidade (ex: pé diabético) ou inoculação direta. Na forma crônica, ocorre a formação do <strong>sequestro</strong> (osso necrótico) e do <strong>biofilme</strong>, uma matriz que protege as bactérias e torna a cirurgia essencial.</p>
+                <h3>Diagnóstico e Tratamento</h3>
+                <p>O diagnóstico precoce é feito com <strong>Ressonância Magnética (RM)</strong>, pois o Raio-X mostra alterações tardiamente. Marcadores inflamatórios como VHS e PCR estão elevados. O tratamento é uma combinação de <strong>desbridamento cirúrgico</strong> e <strong>antibioticoterapia prolongada</strong> (4 a 6 semanas), guiada por cultura do tecido ósseo.</p>
+            </section>
+
+            <section id="assunto4">
+                <h2>Assunto 4: Dores Articulares <button class="read-section-btn" title="Ler esta seção">🔊</button></h2>
+                <h3>Diferenciação Clínica</h3>
+                <p>A diferenciação entre dor articular mecânica e inflamatória é fundamental e baseia-se no ritmo da dor.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Característica</th>
+                            <th>Dor Mecânica (Ex: Osteoartrite)</th>
+                            <th>Dor Inflamatória (Ex: Artrite Reumatoide)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Ritmo da Dor</strong></td>
+                            <td>Piora com o esforço, melhora com o repouso.</td>
+                            <td>Piora com o repouso, melhora com a atividade.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Rigidez Matinal</strong></td>
+                            <td>Curta duração (&lt; 30 min).</td>
+                            <td>Longa duração (&gt; 1 hora).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sintomas Sistêmicos</strong></td>
+                            <td>Ausentes.</td>
+                            <td>Presentes (fadiga, febre).</td>
+                        </tr>
+                         <tr>
+                            <td><strong>Laboratório (VHS/PCR)</strong></td>
+                            <td>Normal.</td>
+                            <td>Elevados.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <section id="assunto5">
+                <h2>Assunto 5: Síndrome do Manguito Rotador <button class="read-section-btn" title="Ler esta seção">🔊</button></h2>
+                <h3>Morfofisiologia e Etiologia</h3>
+                <p>O manguito rotador é um conjunto de quatro músculos que estabilizam o ombro. O tendão do <strong>músculo supraespinal</strong> é o mais lesionado. A causa é multifatorial, envolvendo a degeneração do tendão com a idade e o impacto mecânico no espaço subacromial.</p>
+                <h3>Clínica e Diagnóstico</h3>
+                <p>Os sintomas clássicos são a <strong>dor noturna</strong> e o <strong>arco doloroso</strong> (dor entre 60° e 120° de abdução). O diagnóstico é clínico, com testes como Neer, Hawkins e Jobe. A <strong>RM</strong> é o padrão-ouro para confirmar a lesão. O tratamento inicial é conservador, com fisioterapia e controle da dor.</p>
+            </section>
+
+            <section id="assunto6">
+                <h2>Assunto 6: Síndrome do Túnel do Carpo <button class="read-section-btn" title="Ler esta seção">🔊</button></h2>
+                <h3>Fisiopatologia e Clínica</h3>
+                <p>É a neuropatia compressiva mais comum, causada pela compressão do <strong>nervo mediano</strong> no punho. A clínica clássica é a parestesia (formigamento) no território do nervo, com uma característica <strong>piora noturna</strong>, que faz o paciente acordar e "sacudir a mão" para obter alívio.</p>
+                <h3>Diagnóstico e Tratamento</h3>
+                <p>O diagnóstico é clínico, com manobras provocativas como o <strong>Teste de Phalen</strong> e o Sinal de Tinel. A <strong>Eletroneuromiografia (ENMG)</strong> confirma e gradua a lesão. O tratamento pode ser conservador (órtese noturna, infiltração de corticoide) ou cirúrgico (liberação do retináculo dos flexores) para casos mais graves.</p>
+            </section>
+
+            <section id="assunto7">
+                <h2>Assunto 7: Displasia do Desenvolvimento do Quadril (DDQ) <button class="read-section-btn" title="Ler esta seção">🔊</button></h2>
+                <h3>Fisiopatologia e Diagnóstico</h3>
+                <p>A DDQ é um desenvolvimento anormal da articulação do quadril, onde o acetábulo é raso. Fatores de risco incluem sexo feminino e apresentação pélvica. O diagnóstico precoce é crucial. Em recém-nascidos, são usadas as manobras de <strong>Ortolani</strong> e <strong>Barlow</strong>. Após 3 meses, o sinal mais confiável é a <strong>limitação da abdução</strong> do quadril.</p>
+                <h3>Tratamento</h3>
+                <p>O tratamento varia com a idade. Para bebês de até 6 meses, o <strong>Suspensório de Pavlik</strong> é o tratamento de escolha, com altas taxas de sucesso. Diagnósticos tardios exigem tratamentos mais invasivos, como redução fechada com gesso ou cirurgia aberta.</p>
+            </section>
+
+            <section id="assunto8">
+                <h2>Assunto 8: Osteoporose <button class="read-section-btn" title="Ler esta seção">🔊</button></h2>
+                <h3>Definição e Fisiopatologia</h3>
+                <p>É uma doença caracterizada pela diminuição da massa óssea, levando a um risco aumentado de fraturas por fragilidade. A fisiopatologia central é um desequilíbrio no ciclo de remodelação óssea. Na pós-menopausa, a queda do estrogênio acelera a atividade dos osteoclastos (células que reabsorvem osso).</p>
+                <h3>Diagnóstico e Tratamento</h3>
+                <p>A osteoporose é silenciosa até a primeira fratura. O diagnóstico é feito pela <strong>Densitometria Óssea (DXA)</strong>, com um <strong>T-score ≤ -2,5</strong>. O tratamento inclui medidas não farmacológicas (cálcio, vitamina D, exercícios) e farmacológicas, sendo os <strong>Bisfosfonatos</strong> (ex: Alendronato) a primeira linha.</p>
+            </section>
+
+            <section id="assunto9">
+                <h2>Assunto 9: Cefaleia <button class="read-section-btn" title="Ler esta seção">🔊</button></h2>
+                <h3>Tipos de Cefaleias Primárias</h3>
+                <ul>
+                    <li><strong>Tensional:</strong> A mais comum. Dor em aperto, bilateral, leve a moderada, não piora com esforço.</li>
+                    <li><strong>Enxaqueca (Migrânea):</strong> Dor pulsátil, unilateral, moderada a grave, piora com esforço, associada a náuseas, fotofobia e fonofobia. A fisiopatologia envolve o sistema trigeminovascular e o neuropeptídeo CGRP.</li>
+                    <li><strong>Em Salvas:</strong> Dor excruciante, unilateral, periorbital. Ocorre em "salvas" e se associa a sinais autonômicos (lacrimejamento, congestão nasal).</li>
+                </ul>
+                <p>É crucial reconhecer as <span class="red-flag">"Red Flags"</span> que sugerem uma causa secundária, como início súbito ou "a pior cefaleia da vida".</p>
+            </section>
+
+            <section id="assunto10">
+                <h2>Assunto 10: Acidente Vascular Encefálico (AVE) <button class="read-section-btn" title="Ler esta seção">🔊</button></h2>
+                <h3>Definição e Tipos</h3>
+                <p>É um déficit neurológico súbito de origem vascular. O <strong>AVE Isquêmico (AVCi)</strong>, por obstrução de um vaso, corresponde a 87% dos casos. O <strong>AVE Hemorrágico (AVEh)</strong>, por ruptura de um vaso, corresponde aos 13% restantes.</p>
+                <h3>Diagnóstico e Tratamento</h3>
+                <p>O exame inicial de escolha é a <strong>Tomografia de Crânio sem contraste</strong> para diferenciar os tipos. No AVCi, o objetivo é salvar a <strong>área de penumbra isquêmica</strong>. O tratamento pode ser com <strong>trombólise venosa (rt-PA)</strong> em uma janela de até 4,5 horas, ou com <strong>trombectomia mecânica</strong> para oclusão de grandes vasos.</p>
+            </section>
+
+            <section id="assunto11">
+                <h2>Assunto 11: Delirium <button class="read-section-btn" title="Ler esta seção">🔊</button></h2>
+                <h3>Definição e Diferenças</h3>
+                <p>Delirium é uma síndrome neurocomportamental <strong>aguda</strong> e de curso <strong>flutuante</strong>, cuja principal característica é um <strong>déficit de atenção</strong> e alteração do nível de consciência. É crucial diferenciá-lo da demência, que tem início lento e curso progressivo.</p>
+                <h3>Subtipos e Manejo</h3>
+                <p>Pode ser <strong>hiperativo</strong> (agitação), <strong>hipoativo</strong> (letargia, mais comum e de pior prognóstico) ou <strong>misto</strong>. A prioridade no manejo é <strong>tratar a causa base</strong> (infecção, distúrbio metabólico). A primeira linha de tratamento são as medidas não farmacológicas. <span class="red-flag">Deve-se evitar benzodiazepínicos.</span></p>
+            </section>
+            
+            <section id="assunto12">
+                <h2>Assunto 12: Memória e Doença de Alzheimer (DA) <button class="read-section-btn" title="Ler esta seção">🔊</button></h2>
+                <h3>Memória e o Hipocampo</h3>
+                <p>A memória é o processo de codificar, armazenar e evocar informações. O <strong>hipocampo</strong> é a estrutura cerebral chave para a consolidação de novas memórias, especialmente a memória episódica (eventos autobiográficos).</p>
+                <h3>Doença de Alzheimer</h3>
+                <p>É a causa mais comum de demência. Sua fisiopatologia envolve o acúmulo de <strong>placas amiloides</strong> (extracelulares) e <strong>emaranhados neurofibrilares</strong> de proteína Tau (intracelulares). Como a doença começa no hipocampo, o sintoma inicial clássico é a <strong>perda de memória episódica recente</strong>. O tratamento é sintomático com Inibidores da Acetilcolinesterase e Memantina.</p>
+            </section>
+
+            <section id="assunto13">
+                <h2>Assunto 13: Síndromes Extrapiramidais e Parkinson <button class="read-section-btn" title="Ler esta seção">🔊</button></h2>
+                <h3>Sistema Extrapiramidal</h3>
+                <p>O sistema extrapiramidal, centrado nos núcleos da base, modula o movimento. A <strong>Dopamina</strong> da substância negra (SNc) é o maestro: estimula a via direta (pró-movimento) e inibe a via indireta (anti-movimento).</p>
+                <h3>Doença de Parkinson</h3>
+                <p>Na DP, ocorre a morte de neurônios dopaminérgicos da SNc. A falta de dopamina "freia" o movimento, causando os sintomas motores cardinais:</p>
+                <ul>
+                    <li><strong>Bradicinesia:</strong> Lentidão de movimento (sintoma obrigatório).</li>
+                    <li><strong>Tremor de Repouso:</strong> Assimétrico, 4-6 Hz ("contar moedas").</li>
+                    <li><strong>Rigidez:</strong> "Roda denteada" ou "cano de chumbo".</li>
+                    <li><strong>Instabilidade Postural</strong> (tardia).</li>
+                </ul>
+                <p>O tratamento padrão-ouro é a <strong>Levodopa</strong>.</p>
+            </section>
+
+            <section id="assunto14">
+                <h2>Assunto 14: Epilepsia e Crises Epilépticas <button class="read-section-btn" title="Ler esta seção">🔊</button></h2>
+                <h3>Definições e Classificação</h3>
+                <p>Uma <strong>crise epiléptica</strong> é um evento transitório de atividade neuronal anormal. <strong>Epilepsia</strong> é a doença, com predisposição a ter crises recorrentes. A fisiopatologia é um desequilíbrio entre excitação (Glutamato) e inibição (GABA).</p>
+                <p>As crises são classificadas pelo início:</p>
+                <ul>
+                    <li><strong>Focal:</strong> Começa em um ponto. A <strong>focal disperceptiva</strong> (com perda de consciência e automatismos) é o tipo mais comum em adultos.</li>
+                    <li><strong>Generalizada:</strong> Envolve ambos os hemisférios desde o início, como a crise <strong>tônico-clônica</strong> ("grande mal") e a de <strong>ausência</strong> ("pequeno mal").</li>
+                </ul>
+                <p>O diagnóstico é clínico, e o EEG auxilia na classificação.</p>
+            </section>
+
+            <section id="assunto15">
+                <h2>Assunto 15: Lesões do Neurônio Motor <button class="read-section-btn" title="Ler esta seção">🔊</button></h2>
+                <h3>Diferenciação Clínica</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Característica</th>
+                            <th>Lesão do Neurônio Motor Superior (NMS)</th>
+                            <th>Lesão do Neurônio Motor Inferior (NMI)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Tônus</strong></td>
+                            <td>Espasticidade (Hipertonia)</td>
+                            <td>Flacidez (Hipotonia)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Reflexos</strong></td>
+                            <td>Hiperreflexia</td>
+                            <td>Hiporreflexia/Arreflexia</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Babinski</strong></td>
+                            <td>Presente</td>
+                            <td>Ausente</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Doenças Associadas</h3>
+                <ul>
+                    <li><strong>Síndrome de Guillain-Barré (SGB):</strong> Doença autoimune que afeta exclusivamente o NMI, causando uma paralisia flácida, ascendente e com arreflexia.</li>
+                    <li><strong>Esclerose Lateral Amiotrófica (ELA):</strong> Doença degenerativa que afeta tanto o NMS quanto o NMI, combinando sinais de ambos.</li>
+                </ul>
+            </section>
+
+            <section id="assunto16">
+                <h2>Assunto 16: Distúrbios Visuais e Auditivos <button class="read-section-btn" title="Ler esta seção">🔊</button></h2>
+                <h3>Ametropias e Glaucoma</h3>
+                <ul>
+                    <li><strong>Miopia:</strong> Dificuldade para longe. Corrige com lente divergente.</li>
+                    <li><strong>Hipermetropia:</strong> Dificuldade para perto. Corrige com lente convergente.</li>
+                    <li><strong>Glaucoma:</strong> Dano ao nervo óptico por aumento da pressão intraocular, causando perda da visão <strong>periférica</strong> ("visão em túnel").</li>
+                </ul>
+                <h3>Vertigem</h3>
+                <p>É a sensação rotatória. A causa mais comum é a <strong>Vertigem Posicional Paroxística Benigna (VPPB)</strong>, por deslocamento de otólitos nos canais semicirculares. Causa crises curtas ao mover a cabeça e é tratada com a Manobra de Epley.</p>
+            </section>
+
+            <section id="assunto17">
+                <h2>Assunto 17: Disfunções Hipofisárias <button class="read-section-btn" title="Ler esta seção">🔊</button></h2>
+                <h3>Hiperpituitarismo</h3>
+                <p>Geralmente causado por um adenoma. O mais comum é o <strong>Prolactinoma</strong>, que causa galactorreia e hipogonadismo, e tem como tratamento de primeira linha agonistas dopaminérgicos (Cabergolina). Outras síndromes incluem Acromegalia (excesso de GH) e Doença de Cushing (excesso de ACTH).</p>
+                <h3>Hipopituitarismo</h3>
+                <p>É a deficiência de hormônios. A deficiência de ACTH é a mais grave. <span class="red-flag">Regra de ouro:</span> na reposição, deve-se administrar <strong>cortisol ANTES</strong> do hormônio tireoidiano para evitar crise adrenal.</p>
+            </section>
+
+            <section id="assunto18">
+                <h2>Assunto 18: Puberdade Precoce <button class="read-section-btn" title="Ler esta seção">🔊</button></h2>
+                <h3>Definição e Tipos</h3>
+                <p>É o aparecimento de caracteres sexuais antes dos 8 anos em meninas e 9 em meninos. Pode ser:</p>
+                <ul>
+                    <li><strong>Central (PPC):</strong> A mais comum. O eixo hormonal é ativado precocemente.</li>
+                    <li><strong>Periférica (PPP):</strong> Produção autônoma de hormônios sexuais (ex: tumor).</li>
+                </ul>
+                <p>O diagnóstico diferencial é feito com o <strong>Teste de estímulo com GnRH</strong>. A principal consequência é a baixa estatura final, e o tratamento da PPC é com <strong>análogos do GnRH</strong>.</p>
+            </section>
+
+            <section id="assunto19">
+                <h2>Assunto 19: Diabetes Mellitus (DM) <button class="read-section-btn" title="Ler esta seção">🔊</button></h2>
+                <h3>DM Tipo 1 vs. DM Tipo 2</h3>
+                 <table>
+                    <thead>
+                        <tr>
+                            <th>Característica</th>
+                            <th>Diabetes Mellitus Tipo 1 (DM1)</th>
+                            <th>Diabetes Mellitus Tipo 2 (DM2)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Fisiopatologia</strong></td>
+                            <td>Destruição <strong>autoimune</strong> das células beta, levando a uma <strong>deficiência absoluta</strong> de insulina.</td>
+                            <td>Combinação de <strong>resistência à insulina</strong> e uma <strong>deficiência relativa</strong> na sua secreção.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Início</strong></td>
+                            <td>Abrupto, com os "4 Ps" (Poliúria, Polidipsia, Polifagia, Perda de peso).</td>
+                            <td>Insidioso e assintomático por muitos anos.</td>
+                        </tr>
+                         <tr>
+                            <td><strong>Tratamento Inicial</strong></td>
+                            <td><strong>Insulinoterapia</strong> desde o diagnóstico.</td>
+                            <td>Mudanças no estilo de vida e <strong>Metformina</strong>.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="assunto20">
+                <h2>Assunto 20: Complicações do Diabetes <button class="read-section-btn" title="Ler esta seção">🔊</button></h2>
+                <h3>Agudas</h3>
+                <ul>
+                    <li><strong>Cetoacidose Diabética (CAD):</strong> Típica do DM1. Tríade: Hiperglicemia, Cetose e Acidose.</li>
+                    <li><strong>Estado Hiperglicêmico Hiperosmolar (EHH):</strong> Típico do DM2 (idosos). Hiperglicemia extrema e desidratação severa, sem acidose significativa.</li>
+                    <li><strong>Hipoglicemia:</strong> A complicação mais comum do tratamento.</li>
+                </ul>
+                <h3>Crônicas</h3>
+                <p>Decorrem do dano vascular pela hiperglicemia. Dividem-se em:</p>
+                <ul>
+                    <li><strong>Microvasculares:</strong> Retinopatia (principal causa de cegueira), Nefropatia (principal causa de doença renal terminal) e Neuropatia.</li>
+                    <li><strong>Macrovasculares:</strong> Aterosclerose acelerada, aumentando o risco de IAM e AVE.</li>
+                    <li><strong>Pé Diabético:</strong> Combinação de neuropatia, doença vascular e infecção. Principal causa de amputações não traumáticas.</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <!-- Controles de Leitura em Voz Alta -->
+    <div id="tts-controls">
+        <button id="tts-play-all" title="Ouvir o texto todo">▶️</button>
+        <button id="tts-pause-resume" title="Pausar" disabled>⏸️</button>
+        <button id="tts-stop" title="Parar" disabled>⏹️</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const synth = window.speechSynthesis;
+            if (!synth) {
+                console.error("Seu navegador não suporta a API de Síntese de Voz.");
+                document.getElementById('tts-controls').style.display = 'none';
+                return;
+            }
+
+            const playAllBtn = document.getElementById('tts-play-all');
+            const pauseResumeBtn = document.getElementById('tts-pause-resume');
+            const stopBtn = document.getElementById('tts-stop');
+            const mainContent = document.getElementById('main-content');
+            const sectionReadBtns = document.querySelectorAll('.read-section-btn');
+
+            let utterance;
+
+            function updateControls(isSpeaking) {
+                playAllBtn.disabled = isSpeaking;
+                pauseResumeBtn.disabled = !isSpeaking;
+                stopBtn.disabled = !isSpeaking;
+                
+                sectionReadBtns.forEach(btn => btn.disabled = isSpeaking);
+
+                if (isSpeaking) {
+                    pauseResumeBtn.innerHTML = '⏸️';
+                    pauseResumeBtn.title = 'Pausar';
+                }
+            }
+
+            function speakText(textToSpeak) {
+                if (synth.speaking) {
+                    synth.cancel();
+                }
+
+                utterance = new SpeechSynthesisUtterance(textToSpeak);
+                utterance.lang = 'pt-BR';
+                
+                // Tenta encontrar uma voz em português do Brasil
+                const voices = synth.getVoices();
+                const ptBRVoice = voices.find(voice => voice.lang === 'pt-BR');
+                if (ptBRVoice) {
+                    utterance.voice = ptBRVoice;
+                }
+
+                utterance.onstart = () => {
+                    console.log('Síntese de voz iniciada.');
+                    updateControls(true);
+                };
+
+                utterance.onend = () => {
+                    console.log('Síntese de voz finalizada.');
+                    updateControls(false);
+                };
+
+                utterance.onerror = (event) => {
+                    console.error('Ocorreu um erro na síntese de voz.', event);
+                    updateControls(false);
+                };
+                
+                utterance.onpause = () => {
+                    console.log('Pausado');
+                    pauseResumeBtn.innerHTML = '▶️';
+                    pauseResumeBtn.title = 'Continuar';
+                };
+
+                utterance.onresume = () => {
+                     console.log('Continuando');
+                    pauseResumeBtn.innerHTML = '⏸️';
+                    pauseResumeBtn.title = 'Pausar';
+                };
+
+                synth.speak(utterance);
+            }
+            
+            // Carregar vozes pode ser assíncrono
+            if (synth.onvoiceschanged !== undefined) {
+                synth.onvoiceschanged = () => synth.getVoices();
+            }
+
+            playAllBtn.addEventListener('click', () => {
+                const text = mainContent.innerText || mainContent.textContent;
+                speakText(text);
+            });
+            
+            sectionReadBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const section = e.target.closest('section');
+                    if(section){
+                        // Clona o nó para não modificar o DOM original
+                        const sectionClone = section.cloneNode(true);
+                        // Remove o botão do clone para não ler o emoji
+                        sectionClone.querySelector('.read-section-btn').remove();
+                        const text = sectionClone.innerText || sectionClone.textContent;
+                        speakText(text);
+                    }
+                });
+            });
+
+            pauseResumeBtn.addEventListener('click', () => {
+                if (synth.paused) {
+                    synth.resume();
+                } else {
+                    synth.pause();
+                }
+            });
+
+            stopBtn.addEventListener('click', () => {
+                synth.cancel();
+                updateControls(false);
+            });
+            
+            // Garante que os controles sejam resetados se a janela for fechada durante a fala
+            window.addEventListener('beforeunload', () => {
+                synth.cancel();
+            });
+        });
+    </script>
+
+</body>
+</html>
